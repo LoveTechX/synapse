@@ -1,71 +1,32 @@
 # Smart Autonomous File Organizer
 
-## Vision
-To create a seamless and efficient file organization experience that saves time and reduces clutter, allowing users to focus on meaningful work.
+## Description
+The Smart Autonomous File Organizer is an innovative solution designed to categorize and manage files efficiently. Leveraging advanced techniques such as semantic classification, our system ensures that files are organized accurately based on their content. 
 
-## Problem
-In today's digital age, the sheer volume of files leads to confusion and inefficiency. Users spend excessive time searching for files, leading to decreased productivity and increased frustration.
-
-## Solution
-The Smart Autonomous File Organizer uses intelligent algorithms to automatically categorize and organize files based on user-defined rules and preferences, making file management effortless.
-
-## Core Features
-- **Automatic Sorting:** Automatically categorizes files into designated folders based on user preferences.
-- **Customizable Rules:** Users can define sorting rules that suit their specific needs.
-- **Search Functionality:** Quick search capabilities to find files instantly.
-- **Cross-Platform Compatibility:** Works seamlessly on Windows, macOS, and Linux.
-- **User-Friendly Interface:** Intuitive and easy-to-use GUI for all user levels.
-- **AI-Driven Suggestions:** Suggests organization strategies based on usage patterns.
+### Features
+- **Semantic Classification**: Utilizes machine learning algorithms to classify files semantically, improving retrieval accuracy.
+- **Real-Time Monitoring**: Monitors file changes in real-time, ensuring that the system is always up-to-date.
+- **Confidence-Based Routing**: Implements a confidence-based routing mechanism to determine the best classification for each file, enhancing reliability.
+- **Explainable AI**: Focuses on transparency by providing explanations for classification decisions, fostering trust in AI systems.
+- **Safety Philosophy**: Incorporates safety measures to prevent data loss and ensure user privacy.
 
 ## Architecture Diagram
-![Architecture Diagram](link-to-architecture-diagram.png)
-
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/LoveTechX/smart-autonomous-file-organizer.git
-   ```  
-2. Navigate to the project directory:
-   ```bash
-   cd smart-autonomous-file-organizer
-   ```
-3. Install the required dependencies:
-   ```bash
-   npm install
-   ```
-
-## Usage
-- Launch the application:
-  ```bash
-  npm start
-  ```
-- Follow the on-screen instructions to set up your file organization preferences.
+![Architecture Diagram](path/to/architecture_diagram.png)
 
 ## CLI Commands
-- `organize [directory]`: Organizes files in the specified directory.
-- `set-rules [rules-file]`: Sets organization rules based on a specified JSON file.
-- `list-files [directory]`: Lists all files in the specified directory.
-
-## Safety Philosophy
-We prioritize user data safety above all. The Smart Autonomous File Organizer does not alter or delete files without explicit consent. Users are encouraged to backup files before using the automatic organization feature.
-
-## Logging
-The application logs all activities for transparency and troubleshooting. Logs can be found in the `logs` directory.
+- `./organizer --help`: Show available commands.
+- `./organizer classify <file>`: Classify a specific file.
+- `./organizer monitor`: Start monitoring a directory.
+- `./organizer report`: Generate a report of organized files.
 
 ## Roadmap
-- **Q3 2026:** Launch beta version.
-- **Q4 2026:** Implement user feedback and release version 1.0.
-- **2027:** Introduce mobile app for on-the-go file organization.
-
-## Contributing
-Contributions are welcome! Please read our [CONTRIBUTING.md](link-to-contributing-guide) for guidelines on how to get started.
-
-## Future Impact
-By enhancing file organization, we aim to improve productivity within workplaces and educational institutions, leading to a more streamlined digital experience.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+- **Q1 2026**: Complete initial feature set.
+- **Q2 2026**: Launch beta version.
+- **Q3 2026**: Implement user feedback and improve features.
+- **Q4 2026**: Release v1.0.
 
 ## Author
-**LoveTechX** - [GitHub Profile](https://github.com/LoveTechX)  
-Feel free to reach out for collaboration or inquiries.
+This project is maintained by Lovepreet Singh.
+
+## License
+This project is licensed under the MIT License.
