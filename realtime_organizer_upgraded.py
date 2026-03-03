@@ -38,7 +38,7 @@ from subject_classifier import classify_subject
 from semantic_memory import add_document_memory
 
 # ======== PHASE IMPORTS ========
-from decision_log import log_decision, print_log_summary
+from storage.decision_log import log_decision, print_log_summary
 from preview_mode import preview_mode
 from explanation_engine import explanation_engine
 from confidence_scorer import confidence_scorer, ConfidenceScorer

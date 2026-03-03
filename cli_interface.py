@@ -6,7 +6,11 @@ Commands: explain, preview, auto, manual, history, status, etc.
 
 import os
 from typing import Optional, List
-from decision_log import get_decision_log, get_decisions_by_file, print_log_summary
+from storage.decision_log import (
+    get_decision_log,
+    get_decisions_by_file,
+    print_log_summary,
+)
 from preview_mode import preview_mode
 
 
