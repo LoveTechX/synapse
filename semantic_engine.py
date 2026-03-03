@@ -80,7 +80,7 @@ if __name__ == "__main__":
         cmd = input("\n1: Add file  2: Search  3: Exit\n")
 
         if cmd == "1":
-            from ai_content_engine import extract_content
+            from ai.content_engine import extract_content
 
             path = input("File path: ")
             raw = extract_content(path)
