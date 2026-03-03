@@ -6,7 +6,7 @@ import threading
 import time
 from collections import Counter
 
-from semantic_memory import MEMORY_META_PATH, search_knowledge
+from ai.semantic_memory import MEMORY_META_PATH, search_knowledge
 
 
 SUGGESTION_HISTORY_PATH = "D:/AUTOMATION/jarvis_search_history.json"

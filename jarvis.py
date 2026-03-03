@@ -17,7 +17,7 @@ except ImportError as e:
     ) from e
 
 from realtime_organizer import initial_scan, undo_last_move
-from semantic_memory import search_knowledge
+from ai.semantic_memory import search_knowledge
 from suggestion_engine import SuggestionEngine
 
 
