@@ -40,7 +40,7 @@ from semantic_memory import add_document_memory
 # ======== PHASE IMPORTS ========
 from storage.decision_log import log_decision, print_log_summary
 from preview_mode import preview_mode
-from explanation_engine import explanation_engine
+from ai.explanation import explanation_engine
 from ai.confidence import confidence_scorer, ConfidenceScorer
 from cli_interface import CLIInterface, start_cli_interface
 from safety.guardrails import safety_guardrails
