@@ -32,8 +32,8 @@ from datetime import datetime
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from ai.content_engine import extract_content
-import semantic_classifier
-from semantic_classifier import classify_document
+import ai.semantic_classifier as semantic_classifier
+from ai.semantic_classifier import classify_document
 from subject_classifier import classify_subject
 from ai.semantic_memory import add_document_memory
 
