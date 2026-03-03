@@ -133,7 +133,7 @@ def classify_subject(text_chunks, file_name=""):
 
 
 if __name__ == "__main__":
-    from ai_content_engine import extract_content
+    from ai.content_engine import extract_content
 
     file_path = input("Enter file path: ")
     raw = extract_content(file_path)

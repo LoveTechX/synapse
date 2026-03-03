@@ -1,4 +1,4 @@
-from ai_content_engine import extract_content
+from ai.content_engine import extract_content
 from semantic_classifier import classify_document
 
 file = input("Enter file path: ")

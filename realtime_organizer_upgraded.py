@@ -31,7 +31,7 @@ import json
 from datetime import datetime
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-from ai_content_engine import extract_content
+from ai.content_engine import extract_content
 import semantic_classifier
 from semantic_classifier import classify_document
 from subject_classifier import classify_subject
