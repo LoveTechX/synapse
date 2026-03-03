@@ -11,7 +11,7 @@ import os
 from typing import Optional, Dict, Any
 
 # For audit logging of preview approvals/rejections
-from decision_log import log_decision
+from storage.decision_log import log_decision
 
 
 class PreviewMode:
