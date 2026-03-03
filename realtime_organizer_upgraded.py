@@ -34,15 +34,15 @@ from watchdog.events import FileSystemEventHandler
 from ai.content_engine import extract_content
 import ai.semantic_classifier as semantic_classifier
 from ai.semantic_classifier import classify_document
-from subject_classifier import classify_subject
+from ai.subject_classifier import classify_subject
 from ai.semantic_memory import add_document_memory
 
 # ======== PHASE IMPORTS ========
 from storage.decision_log import log_decision, print_log_summary
-from preview_mode import preview_mode
+from ui.preview_mode import preview_mode
 from ai.explanation import explanation_engine
 from ai.confidence import confidence_scorer, ConfidenceScorer
-from cli_interface import CLIInterface, start_cli_interface
+from ui.cli_interface import CLIInterface, start_cli_interface
 from safety.guardrails import safety_guardrails
 
 # ======== GLOBAL FLAGS ========

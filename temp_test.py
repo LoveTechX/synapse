@@ -1,6 +1,6 @@
 import os, time
-from realtime_organizer import SmartHandler
-from preview_mode import preview_mode as pm
+from core.realtime_monitor import SmartHandler
+from ui.preview_mode import preview_mode as pm
 
 pm.enable()
 handler = SmartHandler()

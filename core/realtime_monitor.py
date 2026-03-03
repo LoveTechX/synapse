@@ -35,15 +35,15 @@ from watchdog.events import FileSystemEventHandler
 from ai.content_engine import extract_content
 import ai.semantic_classifier as semantic_classifier
 from ai.semantic_classifier import classify_document
-from subject_classifier import classify_subject
+from ai.subject_classifier import classify_subject
 from ai.semantic_memory import add_document_memory
 
 # ======== PHASE IMPORTS ========
 from storage.decision_log import log_decision, print_log_summary
-from preview_mode import preview_mode
+from ui.preview_mode import preview_mode
 from ai.explanation import explanation_engine
 from ai.confidence import confidence_scorer, ConfidenceScorer
-from cli_interface import CLIInterface, start_cli_interface
+from ui.cli_interface import CLIInterface, start_cli_interface
 from safety.guardrails import safety_guardrails
 
 # ======== GLOBAL FLAGS ========
@@ -1079,8 +1079,38 @@ def initial_scan():
 
 # ======== MAIN ========
 
-if __name__ == "__main__":
+# ---------------------------------------------------------------
+# helper functions for starting the watchdog observer
+# ---------------------------------------------------------------
 
+def start_monitoring():
+    """Schedule handler on all source folders and start the observer."""
+    handler = SmartHandler()
+    observer = Observer()
+
+    for folder in sources:
+        if os.path.exists(folder):
+            observer.schedule(handler, folder, recursive=True)
+            print(f"📂 Monitoring: {folder}")
+
+    observer.start()
+    return observer
+
+
+def start_monitoring_thread():
+    """Start monitoring in background for CLI mode."""
+    observer = start_monitoring()
+    thread = threading.Thread(target=observer.join, daemon=True)
+    thread.start()
+    print("✅ Monitoring active in CLI mode")
+    return observer
+
+
+# ---------------------------------------------------------------
+# main entrypoint
+# ---------------------------------------------------------------
+
+def main():
     import sys
 
     print("\n" + "=" * 70)
@@ -1089,63 +1119,21 @@ if __name__ == "__main__":
     print("Phases: Logging | Preview | Explanation | Confidence | CLI | Safety")
     print("=" * 70)
 
-    # helper functions for starting the watchdog observer
-
-    def start_monitoring():
-        """Schedule handler on all source folders and start the observer.
-
-        Returns
-        -------
-        Observer
-            The started watchdog Observer instance.  Caller is responsible for
-            stopping and joining it when the program exits.
-        """
-
-        handler = SmartHandler()
-        observer = Observer()
-
-        for folder in sources:
-            if os.path.exists(folder):
-                observer.schedule(handler, folder, recursive=True)
-                print(f"📂 Monitoring: {folder}")
-
-        observer.start()
-        return observer
-
-    def start_monitoring_thread():
-        """Begin monitoring and return the Observer.
-
-        This convenience wrapper also spins up a daemon thread which simply
-        waits on ``observer.join()``.  The observer itself runs its own thread
-        internally, but the extra thread allows the CLI to exit cleanly while
-        still letting the observer finish if the program is terminated.
-        """
-
-        observer = start_monitoring()
-        thread = threading.Thread(target=observer.join, daemon=True)
-        thread.start()
-        print("✅ Monitoring active in CLI mode")
-        return observer
-
-    # ---------------------------------------------------------------
-    # runtime entrypoints
-    # ---------------------------------------------------------------
-
-    # Check for CLI mode
+    # CLI mode
     if len(sys.argv) > 1 and sys.argv[1].lower() == "cli":
         print("\n📟 Starting Interactive CLI Interface...")
         print("Type 'help' for available commands\n")
-        # start the observer in background before entering the loop
+
         observer = start_monitoring_thread()
         try:
             start_cli_interface()
         finally:
-            # ensure we stop the observer when the CLI exits
             if observer:
                 observer.stop()
                 observer.join()
+
+    # Normal monitoring mode
     else:
-        # Normal monitoring mode
         initial_scan()
 
         observer = start_monitoring()
@@ -1162,3 +1150,7 @@ if __name__ == "__main__":
 
         observer.join()
         print("✓ Shutdown complete")
+
+
+if __name__ == "__main__":
+    main()

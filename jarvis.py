@@ -16,9 +16,9 @@ except ImportError as e:
         "prompt_toolkit is required. Install it with: pip install prompt_toolkit"
     ) from e
 
-from realtime_organizer import initial_scan, undo_last_move
+from core.realtime_monitor import initial_scan, undo_last_move
 from ai.semantic_memory import search_knowledge
-from suggestion_engine import SuggestionEngine
+from safety.suggestion_engine import SuggestionEngine
 
 
 MOVE_HISTORY_PATH = "D:/AUTOMATION/move_history.json"

@@ -11,7 +11,7 @@ from storage.decision_log import (
     get_decisions_by_file,
     print_log_summary,
 )
-from preview_mode import preview_mode
+from ui.preview_mode import preview_mode
 
 
 class CLIInterface:
