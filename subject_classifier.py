@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
-from semantic_classifier import model
+from ai.semantic_classifier import model
 
 # ===== SUBJECT CONFIG =====
 # Add new subjects by updating this dictionary:

@@ -6,7 +6,7 @@ import traceback
 import faiss
 import numpy as np
 
-from semantic_classifier import model
+from ai.semantic_classifier import model
 
 # ======== STORAGE ========
 
