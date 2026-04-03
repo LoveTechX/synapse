@@ -1,0 +1,28 @@
+# API Dependencies for Synapse Dashboard & Backend
+
+# FastAPI Web Framework
+fastapi==0.104.0
+uvicorn==0.24.0
+pydantic==2.4.0
+python-multipart==0.0.6
+
+# AI/ML Dependencies
+sentence-transformers>=2.2.2
+faiss-cpu>=1.7.4
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Document Processing
+pypdf>=3.15.0
+python-docx>=0.8.11
+
+# Data Analysis & Visualization
+pandas>=2.0.0
+matplotlib>=3.7.0
+
+# Diagram Generation
+svgwrite>=1.4.3
+
+# File System & Concurrency
+filelock>=3.12.0
+watchdog>=3.0.0

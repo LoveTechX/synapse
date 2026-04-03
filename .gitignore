@@ -1,18 +1,51 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Python
 __pycache__/
-*.pyc
-*.pkl
-*.index
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.venv/
+venv/
+env/
+
+# Node / Next.js (dashboard)
+dashboard/node_modules/
+dashboard/.next/
+dashboard/out/
+dashboard/.turbo/
+
+# Logs and archives
 *.log
 *.zip
+
+# Environment files
 .env
+.env.*
+!.env.example
+
+# Generated local data / indexes
+*.pkl
+*.index
 semantic_memory_meta.pkl
 semantic_memory.index
 vector_store.pkl
+semantic_memory/
+
+# Project runtime artifacts
 decision_log.json
+move_history.json
 file_logs.csv
 project_backups/
 TEST_AI/
-__pycache__/
-semantic_memory/
-decision_log.json
-move_history.json

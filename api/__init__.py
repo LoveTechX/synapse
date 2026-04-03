@@ -1,0 +1,1 @@
+"""Synapse API module."""
