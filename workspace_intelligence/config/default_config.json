@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "workspace_root": "E:/DEV_ENV/Projects/AI_PLATFORM",
+  "watcher": {
+    "roots": ["E:/DEV_ENV/Projects/AI_PLATFORM"],
+    "recursive": true,
+    "debounce_seconds": 0.5,
+    "include_hidden": false
+  },
+  "rules": {
+    "ignore_folders": [".git", ".venv", "__pycache__", "node_modules", "dist", "build"],
+    "safe_zones": ["E:/DEV_ENV/Projects/AI_PLATFORM"],
+    "file_routing": {
+      "*.py": "code",
+      "*.md": "docs",
+      "*.json": "config"
+    },
+    "routing_rules": [
+      {
+        "pattern": "*.ipynb",
+        "destination": "notebooks",
+        "reason": "Notebook workflows stay isolated",
+        "priority": 10
+      }
+    ],
+    "case_sensitive": false
+  },
+  "decision": {
+    "use_ai_fallback": false,
+    "min_confidence": 0.85,
+    "dry_run": true,
+    "log_decisions": true
+  }
+}

@@ -12,6 +12,7 @@ from typing import Any, Dict, List
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
+from services import analytics_service
 from storage import database
 from storage.decision_log import get_decision_log, get_decisions_by_file
 
@@ -246,29 +247,7 @@ async def get_summary() -> Dict[str, Any]:
         Combined statistics for dashboard overview.
     """
     try:
-        total_files = database.get_total_files()
-        today_count = database.get_today_count()
-        categories = database.get_category_stats()
-        confidence = database.get_confidence_distribution()
-
-        # Calculate moved vs skipped from activity
-        log_entries = get_decision_log()
-        moved_count = sum(1 for entry in log_entries if entry.get("action") == "moved")
-        skipped_count = sum(
-            1 for entry in log_entries if entry.get("action") == "skipped"
-        )
-
-        return {
-            "overview": {
-                "total_files": total_files,
-                "today_files": today_count,
-                "files_moved": moved_count,
-                "files_skipped": skipped_count,
-            },
-            "categories": categories,
-            "confidence": confidence,
-            "timestamp": datetime.utcnow().isoformat(),
-        }
+        return analytics_service.get_summary()
     except Exception as e:
         logger.error(f"Failed to get summary: {e}")
         raise HTTPException(status_code=500, detail="Failed to retrieve summary")

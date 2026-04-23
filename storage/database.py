@@ -123,6 +123,18 @@ def get_today_count() -> int:
     )
 
 
+def get_moved_count() -> int:
+    """Count of decisions where action is moved."""
+    return _run_scalar("SELECT COUNT(*) FROM decisions WHERE action = ?", ("moved",))
+
+
+def get_skipped_count() -> int:
+    """Count of decisions where action is skipped."""
+    return _run_scalar(
+        "SELECT COUNT(*) FROM decisions WHERE action = ?", ("skipped",)
+    )
+
+
 def get_category_stats() -> List[Dict[str, Any]]:
     """Grouped counts by category for analytics views."""
     return _run_rows(
